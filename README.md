@@ -1,6 +1,6 @@
 # REACT-PROJECT-INIT
 
-    : React Project를 구성할 때 기본적으로 사용하는 것으로 세팅해 놓은 project의 init. <br/>
+    : React Project를 구성할 때 기본적으로 사용하는 것으로 세팅해 놓은 project의 init.
       [package.json]에 설치된 사용할 모듈들은 최신 버전으로 새로 install 하여 사용하도록 한다.
 
 <br/>
