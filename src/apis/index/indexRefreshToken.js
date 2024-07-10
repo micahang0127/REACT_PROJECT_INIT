@@ -78,6 +78,7 @@ export async function apiGetRefreshToken(apiSucc) {
   });
 }
 
+// [TODO] getResponse함수는 server에서 오는 response 형식에 맞추어 변경하여 사용
 export function getResponse(res, rData = true, rDate = false) {
   const { data, status } = res;
   const { data: subData, pageInfo, success, message, date } = data;

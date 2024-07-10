@@ -18,6 +18,29 @@
 
     ```
 
+## [내용]()
+
+    ```
+
+        1. 폴더 및 파일 기본 구성
+        2. route 예제 (react-router-dom)
+        3. api request (axios)
+        4. store 예제 (@readuxjs/toolkit)
+        5. login (accessToken, refreshToken)
+           + 로그인 성공 시 진입 가능 페이지 처리 (token체크)
+        6. 자주쓰는 함수 (utils)
+           상수처리 (const)
+           날짜처리 (moment)
+           기본함수 (sort, object null check, datetime overlab)
+           storage 사용 (sessionStorage, localStorage)
+           정규식 (email, phone, date, 글자수 제한)
+        7. .env 환경설정 파일 (development, production)
+        8. 코딩컨벤션 자동적용 - (prettier)
+           prettier 규칙을 직접 정의하고, 파일 저장 시 자동 적용 처리
+           (.prettierrc.json, .vscode/settings.json)
+
+    ```
+
 <br/><br/>
 
 ## [React Project 생성 및 세팅하기]()
