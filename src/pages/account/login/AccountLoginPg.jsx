@@ -12,6 +12,8 @@ const AccountLoginPg = () => {
 
   const [email, setEmail] = useState(location?.state?.email ? location.state.email : '');
   const [password, setPassword] = useState('');
+  const [warningEmail, setWarningEmail] = useState('');
+  const [warningPassword, setWarningPassword] = useState('');
 
   const onClickSubmit = () => {
     const apiSucc = (res) => {
@@ -23,7 +25,9 @@ const AccountLoginPg = () => {
         session.setLoginUser({ email, name, cellNumber, birthDate, socialLogin });
         navigate(ROUTES.MAIN);
       } else {
-        alert('로그인에 실패하였습니다');
+        alert(
+          '로그인에 실패하였습니다 \n .env파일에 server url (REACT_APP_SERVER)를 변경해 주세요. \n .env 파일 변경 시 project 재시작 해야 합니다. '
+        );
       }
     };
     apiLogin(email, password, apiSucc);
@@ -34,8 +38,10 @@ const AccountLoginPg = () => {
     const checkEmail = funcRuleEmail(email);
     const checkPassword = funcRulePassword(password);
 
-    if (!checkEmail) console.log('아이디 형식에 어긋납니다.');
-    if (!checkPassword) console.log('비밀번호 형식에 어긋납니다.');
+    if (!checkEmail) setWarningEmail('아이디 형식에 어긋납니다.');
+    else setWarningEmail('');
+    if (!checkPassword) setWarningPassword('비밀번호 형식에 어긋납니다.');
+    else setWarningPassword('');
 
     if (checkEmail && checkPassword) onClickSubmit();
   };
@@ -44,7 +50,6 @@ const AccountLoginPg = () => {
     <LayoutCp headerTitle="로그인" button="close" onClickClose={() => navigate(ROUTES.LOGIN_MAIN)}>
       <section className="content_body">
         <div className="wrap">
-          (
           <dl className="login_title_dl">
             <dt className="FontS28B">
               아이디와 비밀번호를
@@ -60,10 +65,11 @@ const AccountLoginPg = () => {
                 id="email"
                 name="email"
                 type="text"
-                placeholder="영문 이메일 주소를 입력해 주세요."
+                placeholder="a@a.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {warningEmail && <p>{warningEmail}</p>}
             </li>
             <li>
               <h3 className="FontS16B">비밀번호</h3>
@@ -75,6 +81,7 @@ const AccountLoginPg = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {warningPassword && <p>{warningPassword}</p>}
             </li>
           </ul>
         </div>

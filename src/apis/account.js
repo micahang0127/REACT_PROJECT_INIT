@@ -20,11 +20,12 @@ export async function apiLogin(email, password, apiSucc) {
   await axiosInstance
     .post(`${KEY_API.AUTH}/getToken`, obj)
     .then((res) => {
+      // [TODO] getResponse함수는 server에서 오는 response 형식에 맞추어 변경하여 사용
       const resResult = getResponse(res);
       apiSucc(resResult);
     })
     .catch((error) => {
-      if (error?.response?.data) apiSucc(error.response.data);
+      apiSucc(error);
     });
 }
 

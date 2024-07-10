@@ -16,12 +16,12 @@ export function Router() {
 
         <Route path={ROUTES.MAIN} element={<MainPg />} />
 
-        {/* 인증을 하지 않아야만 접속가능 페이지 */}
+        {/* 인증을 하지 않아야만 접속가능 페이지 (로그인 성공 시, 해당페이지 접속 불가) */}
         <Route element={<PrivateRoute authRouter={false} />}>
-          <Route path={ROUTES.LOGIN_ACCOUNT} element={<AccountLoginPg />} />
+          <Route path={ROUTES.ACCOUNT_LOGIN} element={<AccountLoginPg />} />
         </Route>
 
-        {/* 인증을 해야만 접속가능 페이지 */}
+        {/* 인증을 해야만 접속가능 페이지 (로그인후 accessToken이 브라우저에 저장되어 있는지 체크) */}
         <Route element={<PrivateRoute authRouter />}>
           {/* <Route path={ROUTES.TD_RESERVATION} element={<TestDrivingReservationPg />} /> */}
         </Route>

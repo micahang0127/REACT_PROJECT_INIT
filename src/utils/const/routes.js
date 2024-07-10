@@ -1,5 +1,5 @@
 export const ROUTES_BIG_KEY = Object.freeze({
-  BIG_KEY: 'admin',
+  BIG_KEY: 'project',
 });
 
 export const ROUTES_KEY = Object.freeze({
